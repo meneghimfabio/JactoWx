@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, CloudRain, Wind, Sprout, ShieldCheck, MapPin } from 'lucide-react';
+import { Sun, Moon, CloudRain, Wind, Sprout, ShieldCheck, MapPin, Presentation } from 'lucide-react';
 
 export default function Header({ isDark, setIsDark, activeTab, setActiveTab, selectedTalhao, setSelectedTalhao, talhoes }) {
   return (
@@ -84,6 +84,18 @@ export default function Header({ isDark, setIsDark, activeTab, setActiveTab, sel
                 </option>
               ))}
             </select>
+
+            {/* Apresentação Executiva Slide Deck Button */}
+            <a
+              href="/apresentacao.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 text-xs font-semibold shadow-sm transition-all"
+              title="Abrir Apresentação Executiva em Slides (HTML)"
+            >
+              <Presentation className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+              <span className="hidden md:inline">Apresentação Executiva</span>
+            </a>
 
             {/* Dark / Light Toggle */}
             <button
