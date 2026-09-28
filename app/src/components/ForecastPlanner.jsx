@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactECharts from 'echarts-for-react';
-import { Calendar, CloudRain, Wind, Thermometer, Clock, ShieldCheck, AlertTriangle, AlertOctagon, Sparkles, Filter } from 'lucide-react';
+import { Calendar, CloudRain, Wind, Thermometer, Clock, ShieldCheck, CheckCircle2, AlertTriangle, AlertOctagon, Sparkles, Filter } from 'lucide-react';
 
 export default function ForecastPlanner({ data, selectedTalhao, setSelectedTalhao, isDark }) {
   const { analise, clima_6h, talhoes } = data;
@@ -250,7 +250,9 @@ export default function ForecastPlanner({ data, selectedTalhao, setSelectedTalha
           </div>
 
           <div className="space-y-2">
-            {forecastRecords.filter(r => r.data_calendario === activeDate).map(t => (
+            {(selectedTalhao ? forecastRecords.filter(r => r.talhao === selectedTalhao) : forecastRecords)
+              .filter(r => r.data_calendario === activeDate)
+              .map(t => (
               <div
                 key={`talhao-fc-${t.talhao}`}
                 className="p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-[#131316]/50 flex items-center justify-between gap-3"
