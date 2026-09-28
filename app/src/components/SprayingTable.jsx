@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight, Search, Filter, X, Droplets, Gauge, ShieldAlert, CheckCircle2, AlertTriangle, AlertOctagon, Layers, Wind, Thermometer, CloudRain } from 'lucide-react';
+import { ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight, Search, Filter, X, Droplets, Gauge, ShieldAlert, CheckCircle2, AlertTriangle, AlertOctagon, Layers, Wind, Thermometer, CloudRain, Clock } from 'lucide-react';
 
 export default function SprayingTable({ data, selectedTalhao, setSelectedTalhao }) {
   const { analise } = data;
@@ -125,13 +125,14 @@ export default function SprayingTable({ data, selectedTalhao, setSelectedTalhao 
                   <th className="py-3 px-3">Pressão (PSI)</th>
                   <th className="py-3 px-3">Vento Diurno</th>
                   <th className="py-3 px-3">Temp. Diurna</th>
+                  <th className="py-3 px-3">Janela Livre</th>
                   <th className="py-3 px-3">Conformidade Jacto</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-zinc-100 dark:divide-zinc-800/60 text-zinc-800 dark:text-zinc-200">
                 {displayedRows.length === 0 ? (
                   <tr>
-                    <td colSpan={9} className="py-12 text-center text-zinc-400">
+                    <td colSpan={10} className="py-12 text-center text-zinc-400">
                       Nenhuma operação de pulverização encontrada com os filtros selecionados.
                     </td>
                   </tr>
@@ -172,6 +173,17 @@ export default function SprayingTable({ data, selectedTalhao, setSelectedTalhao 
                         </td>
                         <td className="py-2.5 px-3 font-mono">
                           {r.temp_diurna_media_c} °C
+                        </td>
+                        <td className="py-2.5 px-3 font-mono">
+                          <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold ${
+                            r.horas_estimadas_janela_ideal_dia >= 6 
+                              ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400' 
+                              : r.horas_estimadas_janela_ideal_dia > 0
+                              ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400'
+                              : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500'
+                          }`}>
+                            {r.horas_estimadas_janela_ideal_dia}h
+                          </span>
                         </td>
                         <td className="py-2.5 px-3">
                           {getStatusBadge(r.conformidade_operacao_clima)}
@@ -304,6 +316,14 @@ export default function SprayingTable({ data, selectedTalhao, setSelectedTalhao 
                     <CloudRain className="w-3.5 h-3.5 text-blue-500" /> Chuva no Dia:
                   </span>
                   <span className="font-mono font-semibold">{activeRow.chuva_acumulada_dia_mm} mm</span>
+                </div>
+                <div className="flex items-center justify-between p-2 rounded bg-zinc-50 dark:bg-[#131316] border border-zinc-200 dark:border-zinc-800">
+                  <span className="flex items-center gap-1.5 text-zinc-500">
+                    <Clock className="w-3.5 h-3.5 text-emerald-500" /> Janela Operacional Livre:
+                  </span>
+                  <span className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                    {activeRow.horas_estimadas_janela_ideal_dia} horas livres
+                  </span>
                 </div>
               </div>
             </div>
