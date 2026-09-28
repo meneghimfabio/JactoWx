@@ -1,0 +1,12 @@
+eguem em anexo os arquivos da Fazenda Girassol.
+
+1) Talhões — talhoes_fazenda_girassol_shp.zip
+Os seis talhões: 11, 12, 27, 28, 44 e 45. Cada um traz o nome, a área em hectares e o período de vigência do desenho.
+
+2) Pulverização — pulverizacao_talhao_dia_shp.zip
+A aplicação nesses mesmos talhões entre setembro/2025 e julho/2026.
+
+Vale destacar como montei esse segundo arquivo: considerei apenas o trabalho efetivo, ou seja, os trechos em que o pulverizador estava de fato aplicando. Os deslocamentos dentro do talhão, com a barra fechada, ficaram de fora. Se preferir o rastro completo, consigo gerar também.
+
+Além da pulverização, o mesmo período tem adubação, plantio e
+colheita de grãos registrados nesses talhões. Posso gerar caso seja necessário.
