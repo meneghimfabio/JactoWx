@@ -90,7 +90,7 @@ Abra o dashboard em `http://localhost:3000` e siga este roteiro de 5 atos:
 
 ---
 
-## 5. Como Responder às Perguntas Difíceis dos Executivos (FAQ / "Pegadinhas")
+## 5. Perguntas Frequentes & Validação Técnica (FAQ Executivo)
 
 #### P1: *"Por que usar o WeatherNext 2 do Google em vez da estação meteorológica física da fazenda?"*
 > **Sua resposta**: *"Eles são complementares. A estação física só mede o passado (o que já choveu ou o vento que está soprando agora). O WeatherNext 2 olha para a **frente**, com 64 simulações de ensemble para 15 dias, permitindo planejar a compra de calda, o abastecimento e a escala dos operadores com dias de antecedência."*
