@@ -8,7 +8,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -38,53 +37,53 @@
     body { font-family: 'DM Sans', sans-serif; }
     .slide { display: none; }
     .slide.active { display: flex; }
-    .glass {
-      background: rgba(18, 18, 23, 0.75);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .card-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
     }
     .progress-bar-fill {
       transition: width 0.3s ease-in-out;
     }
   </style>
 </head>
-<body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white antialiased">
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white antialiased">
 
   <!-- Top Global Navigation Bar -->
-  <header class="border-b border-zinc-800/80 bg-[#0c0c0f]/90 sticky top-0 z-50 px-6 py-3 flex items-center justify-between backdrop-blur-md">
+  <header class="border-b border-slate-200 bg-white/95 sticky top-0 z-50 px-6 py-3 flex items-center justify-between backdrop-blur-md shadow-sm">
     <div class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-blue-600/30">
+      <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-blue-500/20">
         <i class="fa-solid fa-wind"></i>
       </div>
       <div>
-        <h1 class="font-bold text-sm tracking-tight text-white flex items-center gap-2">
-          JactoWX <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800">EXEC PITCH</span>
+        <h1 class="font-bold text-sm tracking-tight text-slate-900 flex items-center gap-2">
+          JactoWX <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">EXEC PITCH</span>
         </h1>
-        <p class="text-[11px] text-zinc-400">Guia Estratégico & Roteiro de Apresentação para C-Levels</p>
+        <p class="text-[11px] text-slate-500">Guia Estratégico & Roteiro de Apresentação para C-Levels</p>
       </div>
     </div>
 
     <!-- Slide Indicators & Controls -->
     <div class="flex items-center gap-4">
-      <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-zinc-400">
-        <span id="slideCounter" class="text-white font-bold">1</span> / <span id="totalSlides">8</span>
+      <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-slate-500">
+        <span id="slideCounter" class="text-slate-900 font-bold">1</span> / <span id="totalSlides">8</span>
       </div>
-      <div class="flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 p-1 rounded-lg">
-        <button onclick="prevSlide()" class="p-2 rounded hover:bg-zinc-800 text-zinc-300 hover:text-white transition-colors" title="Slide Anterior (←)">
+      <div class="flex items-center gap-1.5 bg-slate-100 border border-slate-200 p-1 rounded-lg">
+        <button onclick="prevSlide()" class="p-2 rounded hover:bg-slate-200 text-slate-700 hover:text-slate-900 transition-colors" title="Slide Anterior (←)">
           <i class="fa-solid fa-chevron-left text-xs"></i>
         </button>
-        <button onclick="nextSlide()" class="p-2 rounded hover:bg-zinc-800 text-zinc-300 hover:text-white transition-colors" title="Próximo Slide (→)">
+        <button onclick="nextSlide()" class="p-2 rounded hover:bg-slate-200 text-slate-700 hover:text-slate-900 transition-colors" title="Próximo Slide (→)">
           <i class="fa-solid fa-chevron-right text-xs"></i>
         </button>
       </div>
-      <a href="http://localhost:3000" target="_blank" class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-sm transition-colors">
+      <a href="http://localhost:3000" target="_blank" class="hidden md:inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-colors">
         <i class="fa-solid fa-desktop"></i> Abrir Cockpit
       </a>
     </div>
   </header>
 
   <!-- Progress Bar -->
-  <div class="w-full bg-zinc-900 h-1">
+  <div class="w-full bg-slate-200 h-1">
     <div id="progressBar" class="bg-blue-600 h-1 progress-bar-fill w-[12.5%]"></div>
   </div>
 
@@ -93,37 +92,37 @@
 
     <!-- SLIDE 1: Capa & Visão Executiva -->
     <section class="slide active flex-col justify-center items-center text-center space-y-6 animate-in fade-in duration-300">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-xs font-semibold tracking-wide">
-        <i class="fa-solid fa-sparkles"></i> GOOGLE WEATHERNEXT 2 × TELEMETRIA JACTO
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-200 bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide">
+        <i class="fa-solid fa-sparkles text-blue-600"></i> GOOGLE WEATHERNEXT 2 × TELEMETRIA JACTO
       </div>
-      <h2 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl">
-        Transformando o Clima em <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-cyan-400 bg-clip-text text-transparent">Eficiência Agronômica e Lucro</span>
+      <h2 class="text-4xl sm:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-4xl">
+        Transformando o Clima em <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent">Eficiência Agronômica e Lucro</span>
       </h2>
-      <p class="text-base sm:text-lg text-zinc-400 max-w-2xl font-normal leading-relaxed">
+      <p class="text-base sm:text-lg text-slate-600 max-w-2xl font-normal leading-relaxed">
         Como o JactoWX conecta <strong>392.000 litros de calda</strong> e <strong>64 membros de simulação ensemble</strong> para eliminar perdas financeiras por deriva, evaporação e lavagem por chuva.
       </p>
 
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl w-full mt-4">
-        <div class="glass p-4 rounded-xl text-center">
-          <span class="text-2xl font-bold font-mono text-white">828,8 ha</span>
-          <span class="block text-xs text-zinc-400 mt-1">6 Talhões Monitorados</span>
+        <div class="card-box p-4 rounded-xl text-center">
+          <span class="text-2xl font-bold font-mono text-slate-900">828,8 ha</span>
+          <span class="block text-xs text-slate-500 mt-1">6 Talhões Monitorados</span>
         </div>
-        <div class="glass p-4 rounded-xl text-center">
-          <span class="text-2xl font-bold font-mono text-emerald-400">5.993 ha</span>
-          <span class="block text-xs text-zinc-400 mt-1">7,2x Cobertura da Safra</span>
+        <div class="card-box p-4 rounded-xl text-center">
+          <span class="text-2xl font-bold font-mono text-emerald-600">5.993 ha</span>
+          <span class="block text-xs text-slate-500 mt-1">7,2x Cobertura da Safra</span>
         </div>
-        <div class="glass p-4 rounded-xl text-center">
-          <span class="text-2xl font-bold font-mono text-blue-400">392 mil L</span>
-          <span class="block text-xs text-zinc-400 mt-1">Volume de Calda Aplicado</span>
+        <div class="card-box p-4 rounded-xl text-center">
+          <span class="text-2xl font-bold font-mono text-blue-600">392 mil L</span>
+          <span class="block text-xs text-slate-500 mt-1">Volume de Calda Aplicado</span>
         </div>
-        <div class="glass p-4 rounded-xl text-center">
-          <span class="text-2xl font-bold font-mono text-amber-400">15 Dias</span>
-          <span class="block text-xs text-zinc-400 mt-1">Horizonte Preditivo</span>
+        <div class="card-box p-4 rounded-xl text-center">
+          <span class="text-2xl font-bold font-mono text-amber-600">15 Dias</span>
+          <span class="block text-xs text-slate-500 mt-1">Horizonte Preditivo</span>
         </div>
       </div>
 
       <div class="pt-4 flex items-center gap-3">
-        <button onclick="nextSlide()" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 flex items-center gap-2 transition-all">
+        <button onclick="nextSlide()" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all">
           Iniciar Roteiro Executivo <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
@@ -131,124 +130,124 @@
 
     <!-- SLIDE 2: O Risco Financeiro do "Clima Errado" -->
     <section class="slide flex-col justify-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="border-b border-zinc-800 pb-4">
-        <span class="text-xs font-bold text-rose-400 font-mono tracking-wider uppercase">01 • O "Business Case" para a Diretoria</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">O Custo Oculto da Pulverização fora da Janela</h2>
-        <p class="text-sm text-zinc-400 mt-1">Os defensivos representam de 25% a 35% de todo o custo de produção de uma safra agrícola.</p>
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-rose-600 font-mono tracking-wider uppercase">01 • O "Business Case" para a Diretoria</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">O Custo Oculto da Pulverização fora da Janela</h2>
+        <p class="text-sm text-slate-500 mt-1">Os defensivos representam de 25% a 35% de todo o custo de produção de uma safra agrícola.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="glass p-5 rounded-xl border-l-4 border-rose-500 space-y-2">
-          <div class="flex items-center gap-2 text-rose-400 font-bold text-sm">
+        <div class="card-box p-5 rounded-xl border-l-4 border-rose-500 space-y-2">
+          <div class="flex items-center gap-2 text-rose-600 font-bold text-sm">
             <i class="fa-solid fa-wind"></i> 1. Deriva por Vento (> 15 km/h)
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             Gotas finas são arrastadas para fora do talhão. É literalmente dinheiro voando pelo ar, com risco de contaminação de lavouras vizinhas e passivos ambientais.
           </p>
         </div>
 
-        <div class="glass p-5 rounded-xl border-l-4 border-amber-500 space-y-2">
-          <div class="flex items-center gap-2 text-amber-400 font-bold text-sm">
+        <div class="card-box p-5 rounded-xl border-l-4 border-amber-500 space-y-2">
+          <div class="flex items-center gap-2 text-amber-600 font-bold text-sm">
             <i class="fa-solid fa-cloud-sun"></i> 2. Inversão Térmica (Vento < 3 km/h)
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             Sem vento, o ar estagna. As gotas ficam suspensas como névoa sem penetrar no dossel da planta. Quando o vento sopra horas depois, move a nuvem tóxica em bloco.
           </p>
         </div>
 
-        <div class="glass p-5 rounded-xl border-l-4 border-orange-500 space-y-2">
-          <div class="flex items-center gap-2 text-orange-400 font-bold text-sm">
+        <div class="card-box p-5 rounded-xl border-l-4 border-orange-500 space-y-2">
+          <div class="flex items-center gap-2 text-orange-600 font-bold text-sm">
             <i class="fa-solid fa-temperature-arrow-up"></i> 3. Evaporação por Calor (> 30°C a 32°C)
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             A água da calda evapora antes de atingir as folhas inferiores. O ingrediente ativo cristaliza no ar e perde até <strong>60% da eficácia biológica</strong>.
           </p>
         </div>
 
-        <div class="glass p-5 rounded-xl border-l-4 border-blue-500 space-y-2">
-          <div class="flex items-center gap-2 text-blue-400 font-bold text-sm">
+        <div class="card-box p-5 rounded-xl border-l-4 border-blue-500 space-y-2">
+          <div class="flex items-center gap-2 text-blue-600 font-bold text-sm">
             <i class="fa-solid fa-cloud-showers-heavy"></i> 4. Lavagem por Chuva (> 1 a 5 mm)
           </div>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             Se chover antes do produto ser absorvido pela folha (2 a 4 horas), a calda é lavada para o solo. Custo <strong>100% perdido</strong> e praga descontrolada.
           </p>
         </div>
       </div>
 
-      <div class="p-4 rounded-xl bg-blue-950/40 border border-blue-800 text-xs text-blue-200 flex items-center justify-between">
+      <div class="p-4 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900 flex items-center justify-between">
         <span><strong>Proposta de Valor:</strong> Eliminar o achismo e calcular janelas ideais de aplicação com antecedência.</span>
-        <button onclick="nextSlide()" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white rounded-lg font-bold text-xs">Ver Regras <i class="fa-solid fa-arrow-right"></i></button>
+        <button onclick="nextSlide()" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-xs">Ver Regras <i class="fa-solid fa-arrow-right"></i></button>
       </div>
     </section>
 
     <!-- SLIDE 3: As 3 Regras de Ouro da Pulverização Jacto -->
     <section class="slide flex-col justify-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="border-b border-zinc-800 pb-4">
-        <span class="text-xs font-bold text-blue-400 font-mono tracking-wider uppercase">02 • Parâmetros Agronômicos</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">As 3 Regras de Ouro da Janela de Pulverização</h2>
-        <p class="text-sm text-zinc-400 mt-1">Como o algoritmo do JactoWX traduz variáveis meteorológicas complexas em 3 decisões práticas.</p>
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-blue-600 font-mono tracking-wider uppercase">02 • Parâmetros Agronômicos</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">As 3 Regras de Ouro da Janela de Pulverização</h2>
+        <p class="text-sm text-slate-500 mt-1">Como o algoritmo do JactoWX traduz variáveis meteorológicas complexas em 3 decisões práticas.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <!-- Card Ideal -->
-        <div class="glass p-5 rounded-xl border-t-4 border-emerald-500 flex flex-col justify-between space-y-4">
+        <div class="card-box p-5 rounded-xl border-t-4 border-emerald-500 flex flex-col justify-between space-y-4">
           <div>
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-950 text-emerald-400 border border-emerald-800">
-                <i class="fa-solid fa-circle-check"></i> IDEAL
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                <i class="fa-solid fa-circle-check text-emerald-600"></i> IDEAL
               </span>
-              <span class="text-xs font-mono text-zinc-400">Máquina no Campo</span>
+              <span class="text-xs font-mono text-slate-400">Máquina no Campo</span>
             </div>
-            <h3 class="text-base font-bold text-white mt-3">Máxima Eficácia Biológica</h3>
-            <ul class="text-xs text-zinc-300 space-y-2 mt-3 font-mono">
-              <li><i class="fa-solid fa-wind text-cyan-400 w-4"></i> Vento: <strong>3 a 10 km/h</strong></li>
-              <li><i class="fa-solid fa-temperature-half text-amber-400 w-4"></i> Temp: <strong>&le; 30 °C</strong></li>
-              <li><i class="fa-solid fa-cloud-rain text-blue-400 w-4"></i> Chuva 24h: <strong>&lt; 1,0 mm</strong></li>
+            <h3 class="text-base font-bold text-slate-900 mt-3">Máxima Eficácia Biológica</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mt-3 font-mono">
+              <li><i class="fa-solid fa-wind text-cyan-600 w-4"></i> Vento: <strong>3 a 10 km/h</strong></li>
+              <li><i class="fa-solid fa-temperature-half text-amber-500 w-4"></i> Temp: <strong>&le; 30 °C</strong></li>
+              <li><i class="fa-solid fa-cloud-rain text-blue-600 w-4"></i> Chuva 24h: <strong>&lt; 1,0 mm</strong></li>
             </ul>
           </div>
-          <p class="text-xs text-emerald-400/90 bg-emerald-950/30 p-2.5 rounded-lg border border-emerald-900/50">
+          <p class="text-xs text-emerald-800 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
             A gota penetra profundamente no dossel da planta, não sofre deriva e não evapora.
           </p>
         </div>
 
         <!-- Card Alerta -->
-        <div class="glass p-5 rounded-xl border-t-4 border-amber-500 flex flex-col justify-between space-y-4">
+        <div class="card-box p-5 rounded-xl border-t-4 border-amber-500 flex flex-col justify-between space-y-4">
           <div>
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-950 text-amber-400 border border-amber-800">
-                <i class="fa-solid fa-triangle-exclamation"></i> ALERTA
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> ALERTA
               </span>
-              <span class="text-xs font-mono text-zinc-400">Operação com Ajuste</span>
+              <span class="text-xs font-mono text-slate-400">Operação com Ajuste</span>
             </div>
-            <h3 class="text-base font-bold text-white mt-3">Monitoramento Contínuo</h3>
-            <ul class="text-xs text-zinc-300 space-y-2 mt-3 font-mono">
-              <li><i class="fa-solid fa-wind text-cyan-400 w-4"></i> Vento: <strong>10 a 15 km/h</strong> ou <strong>&lt; 3</strong></li>
-              <li><i class="fa-solid fa-temperature-half text-amber-400 w-4"></i> Temp: <strong>30 °C a 32 °C</strong></li>
-              <li><i class="fa-solid fa-cloud-rain text-blue-400 w-4"></i> Chuva 24h: <strong>1,0 a 5,0 mm</strong></li>
+            <h3 class="text-base font-bold text-slate-900 mt-3">Monitoramento Contínuo</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mt-3 font-mono">
+              <li><i class="fa-solid fa-wind text-cyan-600 w-4"></i> Vento: <strong>10 a 15 km/h</strong> ou <strong>&lt; 3</strong></li>
+              <li><i class="fa-solid fa-temperature-half text-amber-500 w-4"></i> Temp: <strong>30 °C a 32 °C</strong></li>
+              <li><i class="fa-solid fa-cloud-rain text-blue-600 w-4"></i> Chuva 24h: <strong>1,0 a 5,0 mm</strong></li>
             </ul>
           </div>
-          <p class="text-xs text-amber-400/90 bg-amber-950/30 p-2.5 rounded-lg border border-amber-900/50">
+          <p class="text-xs text-amber-800 bg-amber-50 p-2.5 rounded-lg border border-amber-200">
             Requer uso de pontas de indução de ar (gotas grossas) e adjuvantes antideriva.
           </p>
         </div>
 
         <!-- Card Imprópria -->
-        <div class="glass p-5 rounded-xl border-t-4 border-rose-500 flex flex-col justify-between space-y-4">
+        <div class="card-box p-5 rounded-xl border-t-4 border-rose-500 flex flex-col justify-between space-y-4">
           <div>
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-950 text-rose-400 border border-rose-800">
-                <i class="fa-solid fa-ban"></i> IMPRÓPRIA
+              <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                <i class="fa-solid fa-ban text-rose-600"></i> IMPRÓPRIA
               </span>
-              <span class="text-xs font-mono text-zinc-400">Parar Imediatamente</span>
+              <span class="text-xs font-mono text-slate-400">Parar Imediatamente</span>
             </div>
-            <h3 class="text-base font-bold text-white mt-3">Risco Crítico de Perda</h3>
-            <ul class="text-xs text-zinc-300 space-y-2 mt-3 font-mono">
-              <li><i class="fa-solid fa-wind text-cyan-400 w-4"></i> Vento: <strong>&gt; 15 km/h</strong></li>
-              <li><i class="fa-solid fa-temperature-half text-amber-400 w-4"></i> Temp: <strong>&gt; 32 °C</strong></li>
-              <li><i class="fa-solid fa-cloud-rain text-blue-400 w-4"></i> Chuva 24h: <strong>&gt; 5,0 mm</strong></li>
+            <h3 class="text-base font-bold text-slate-900 mt-3">Risco Crítico de Perda</h3>
+            <ul class="text-xs text-slate-600 space-y-2 mt-3 font-mono">
+              <li><i class="fa-solid fa-wind text-cyan-600 w-4"></i> Vento: <strong>&gt; 15 km/h</strong></li>
+              <li><i class="fa-solid fa-temperature-half text-amber-500 w-4"></i> Temp: <strong>&gt; 32 °C</strong></li>
+              <li><i class="fa-solid fa-cloud-rain text-blue-600 w-4"></i> Chuva 24h: <strong>&gt; 5,0 mm</strong></li>
             </ul>
           </div>
-          <p class="text-xs text-rose-400/90 bg-rose-950/30 p-2.5 rounded-lg border border-rose-900/50">
+          <p class="text-xs text-rose-800 bg-rose-50 p-2.5 rounded-lg border border-rose-200">
             Pulverizar nestas condições é queimar diesel e defensivo sem eficácia alguma.
           </p>
         </div>
@@ -257,48 +256,48 @@
 
     <!-- SLIDE 4: O Que é o Google WeatherNext 2? -->
     <section class="slide flex-col justify-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="border-b border-zinc-800 pb-4">
-        <span class="text-xs font-bold text-indigo-400 font-mono tracking-wider uppercase">03 • Tecnologia & Ciência Meteorológica</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">Google WeatherNext 2: A Ciência por Trás</h2>
-        <p class="text-sm text-zinc-400 mt-1">Por que isso não tem nada a ver com o aplicativo de clima comum de celular.</p>
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-indigo-600 font-mono tracking-wider uppercase">03 • Tecnologia & Ciência Meteorológica</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Google WeatherNext 2: A Ciência por Trás</h2>
+        <p class="text-sm text-slate-500 mt-1">Por que isso não tem nada a ver com o aplicativo de clima comum de celular.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="space-y-4">
-          <div class="glass p-4 rounded-xl space-y-2">
-            <h4 class="font-bold text-sm text-blue-400 flex items-center gap-2">
+          <div class="card-box p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-sm text-blue-600 flex items-center gap-2">
               <i class="fa-solid fa-microchip"></i> Inteligência Artificial & Supercomputação
             </h4>
-            <p class="text-xs text-zinc-300 leading-relaxed">
+            <p class="text-xs text-slate-600 leading-relaxed">
               Diferente de modelos puramente matemáticos que demoram 6 horas para calcular, o WeatherNext 2 utiliza <strong>Graph Neural Networks (GNNs)</strong> e <strong>Transformers</strong> rodando em TPUs do Google Cloud, gerando previsões globais de altíssima precisão em minutos.
             </p>
           </div>
 
-          <div class="glass p-4 rounded-xl space-y-2">
-            <h4 class="font-bold text-sm text-indigo-400 flex items-center gap-2">
+          <div class="card-box p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-sm text-indigo-600 flex items-center gap-2">
               <i class="fa-solid fa-layer-group"></i> 64 Cenários Paralelos (Ensemble)
             </h4>
-            <p class="text-xs text-zinc-300 leading-relaxed">
+            <p class="text-xs text-slate-600 leading-relaxed">
               O modelo roda <strong>64 simulações simultâneas</strong>. Isso permite calcular probabilidades reais de risco agronômico: não é "vai chover", mas sim a chance de uma tempestade ocorrer antes ou depois da absorção do defensivo.
             </p>
           </div>
         </div>
 
         <div class="space-y-4">
-          <div class="glass p-4 rounded-xl space-y-2">
-            <h4 class="font-bold text-sm text-emerald-400 flex items-center gap-2">
+          <div class="card-box p-4 rounded-xl space-y-2">
+            <h4 class="font-bold text-sm text-emerald-600 flex items-center gap-2">
               <i class="fa-solid fa-database"></i> De onde vem a "Memória do Passado"?
             </h4>
-            <p class="text-xs text-zinc-300 leading-relaxed">
+            <p class="text-xs text-slate-600 leading-relaxed">
               A memória histórica vem da <strong>Reanálise Atmosférica Global (ERA5 / ECMWF)</strong> e assimilação de dados de milhares de satélites meteorológicos em órbita, radiossondas e estações de superfície.
             </p>
-            <p class="text-xs text-zinc-400 leading-relaxed">
+            <p class="text-xs text-slate-500 leading-relaxed">
               Isso cria uma "estação meteorológica virtual" retroativa de 40 anos sobre cada talhão da fazenda, permitindo auditar o passado sem precisar de sensores locais antigos.
             </p>
           </div>
 
-          <div class="p-4 rounded-xl bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border border-blue-700/50 text-xs text-zinc-200">
-            <div class="font-bold text-white mb-1"><i class="fa-solid fa-bullseye text-blue-400"></i> Resolução Espacial:</div>
+          <div class="p-4 rounded-xl bg-blue-50 border border-blue-200 text-xs text-slate-700">
+            <div class="font-bold text-slate-900 mb-1"><i class="fa-solid fa-bullseye text-blue-600"></i> Resolução Espacial:</div>
             Malha de <strong>0,25° (~25 km de grid)</strong> com reconstrução contínua e integração direta nativa no BigQuery.
           </div>
         </div>
@@ -307,41 +306,41 @@
 
     <!-- SLIDE 5: Auditoria da Safra — O Insight da Chuva vs Janela Livre -->
     <section class="slide flex-col justify-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="border-b border-zinc-800 pb-4">
-        <span class="text-xs font-bold text-emerald-400 font-mono tracking-wider uppercase">04 • O Ponto Alto da Apresentação</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">O Insight das 110 Operações da Safra</h2>
-        <p class="text-sm text-zinc-400 mt-1">Como o JactoWX prova que a fazenda não precisa parar mesmo em meses chuvosos.</p>
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-emerald-600 font-mono tracking-wider uppercase">04 • O Ponto Alto da Apresentação</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">O Insight das 110 Operações da Safra</h2>
+        <p class="text-sm text-slate-500 mt-1">Como o JactoWX prova que a fazenda não precisa parar mesmo em meses chuvosos.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="glass p-5 rounded-xl border border-zinc-800 text-center">
-          <span class="text-4xl font-extrabold font-mono text-emerald-400">65%</span>
-          <span class="block text-xs font-bold text-white mt-2">Janelas Ideais & Alertas</span>
-          <p class="text-[11px] text-zinc-400 mt-2">71 operações foram executadas em condições totalmente adequadas à bula dos defensivos.</p>
+        <div class="card-box p-5 rounded-xl text-center">
+          <span class="text-4xl font-extrabold font-mono text-emerald-600">65%</span>
+          <span class="block text-xs font-bold text-slate-900 mt-2">Janelas Ideais & Alertas</span>
+          <p class="text-[11px] text-slate-500 mt-2">71 operações foram executadas em condições totalmente adequadas à bula dos defensivos.</p>
         </div>
 
-        <div class="glass p-5 rounded-xl border border-zinc-800 text-center">
-          <span class="text-4xl font-extrabold font-mono text-rose-400">37</span>
-          <span class="block text-xs font-bold text-white mt-2">Dias com Chuva > 5 mm</span>
-          <p class="text-[11px] text-zinc-400 mt-2">Aplicações que o gestor tradicional consideraria "perdidas" pelo acumulado de chuva das 24 horas.</p>
+        <div class="card-box p-5 rounded-xl text-center">
+          <span class="text-4xl font-extrabold font-mono text-rose-600">37</span>
+          <span class="block text-xs font-bold text-slate-900 mt-2">Dias com Chuva > 5 mm</span>
+          <p class="text-[11px] text-slate-500 mt-2">Aplicações que o gestor tradicional consideraria "perdidas" pelo acumulado de chuva das 24 horas.</p>
         </div>
 
-        <div class="glass p-5 rounded-xl border border-blue-500/50 bg-blue-950/20 text-center">
-          <span class="text-4xl font-extrabold font-mono text-cyan-400">4 a 12h</span>
-          <span class="block text-xs font-bold text-white mt-2">Janela Segura na Manhã</span>
-          <p class="text-[11px] text-zinc-300 mt-2">A quebra horária do WeatherNext 2 revelou que a chuva era convectiva de fim de tarde, mantendo a manhã livre!</p>
+        <div class="card-box p-5 rounded-xl border-blue-300 bg-blue-50/50 text-center">
+          <span class="text-4xl font-extrabold font-mono text-blue-600">4 a 12h</span>
+          <span class="block text-xs font-bold text-slate-900 mt-2">Janela Segura na Manhã</span>
+          <p class="text-[11px] text-slate-600 mt-2">A quebra horária do WeatherNext 2 revelou que a chuva era convectiva de fim de tarde, mantendo a manhã livre!</p>
         </div>
       </div>
 
       <!-- Caso Prático Real -->
-      <div class="glass p-5 rounded-xl border border-cyan-800/60 bg-gradient-to-r from-cyan-950/30 to-blue-950/30 space-y-3">
+      <div class="card-box p-5 rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-indigo-50 space-y-3">
         <div class="flex items-center justify-between text-xs">
-          <span class="font-bold text-cyan-300 uppercase tracking-wider flex items-center gap-1.5">
-            <i class="fa-solid fa-magnifying-glass-chart"></i> Exemplo Real Auditado no Cockpit: Talhão 28 em 05/02/2026
+          <span class="font-bold text-blue-800 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-magnifying-glass-chart text-blue-600"></i> Exemplo Real Auditado no Cockpit: Talhão 28 em 05/02/2026
           </span>
-          <span class="px-2 py-0.5 rounded bg-blue-900/60 text-blue-300 font-mono font-bold">Safra 2025/2026</span>
+          <span class="px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-mono font-bold">Safra 2025/2026</span>
         </div>
-        <p class="text-xs text-zinc-200 leading-relaxed">
+        <p class="text-xs text-slate-700 leading-relaxed">
           No dia <strong>05/02/2026</strong>, choveu um total de <strong>7,08 mm</strong>. Em qualquer relatório tradicional, essa operação seria classificada como erro grave. No entanto, o WeatherNext 2 demonstrou que houve <strong>12 horas livres de janela</strong> entre a madrugada e a manhã antes da pancada de chuva das 16h. O defensivo teve 8 horas completas para secar e aderir à planta!
         </p>
       </div>
@@ -349,91 +348,91 @@
 
     <!-- SLIDE 6: O Roteiro de 5 Atos no Cockpit -->
     <section class="slide flex-col justify-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="border-b border-zinc-800 pb-4">
-        <span class="text-xs font-bold text-amber-400 font-mono tracking-wider uppercase">05 • Guia Prático ao Vivo</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">Roteiro de 5 Atos na Tela do Cockpit</h2>
-        <p class="text-sm text-zinc-400 mt-1">Siga esta sequência lógica quando estiver demonstrando o sistema no projetor.</p>
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-amber-600 font-mono tracking-wider uppercase">05 • Guia Prático ao Vivo</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Roteiro de 5 Atos na Tela do Cockpit</h2>
+        <p class="text-sm text-slate-500 mt-1">Siga esta sequência lógica quando estiver demonstrando o sistema no projetor.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
-        <div class="glass p-3 rounded-xl border border-zinc-800 space-y-2">
+        <div class="card-box p-3 rounded-xl space-y-2">
           <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center">1</div>
-          <h4 class="font-bold text-xs text-white">Cards do Topo</h4>
-          <p class="text-[11px] text-zinc-400">Contextualize a escala da fazenda: 828 ha cadastrados, 5.993 ha aplicados e 392 mil litros de calda.</p>
+          <h4 class="font-bold text-xs text-slate-900">Cards do Topo</h4>
+          <p class="text-[11px] text-slate-500">Contextualize a escala da fazenda: 828 ha cadastrados, 5.993 ha aplicados e 392 mil litros de calda.</p>
         </div>
 
-        <div class="glass p-3 rounded-xl border border-zinc-800 space-y-2">
+        <div class="card-box p-3 rounded-xl space-y-2">
           <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center">2</div>
-          <h4 class="font-bold text-xs text-white">Mapa Satélite</h4>
-          <p class="text-[11px] text-zinc-400">Mostre o Google Maps e clique em <em>Playback Safra</em> para ver as passadas com barra aberta em ciano.</p>
+          <h4 class="font-bold text-xs text-slate-900">Mapa Satélite</h4>
+          <p class="text-[11px] text-slate-500">Mostre o Google Maps e clique em <em>Playback Safra</em> para ver as passadas com barra aberta em ciano.</p>
         </div>
 
-        <div class="glass p-3 rounded-xl border border-zinc-800 space-y-2">
+        <div class="card-box p-3 rounded-xl space-y-2">
           <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center">3</div>
-          <h4 class="font-bold text-xs text-white">Auditoria Safra</h4>
-          <p class="text-[11px] text-zinc-400">Card 4 e Tabela: mostre que 65% das aplicações foram seguras e a coluna de Janela Livre.</p>
+          <h4 class="font-bold text-xs text-slate-900">Auditoria Safra</h4>
+          <p class="text-[11px] text-slate-500">Card 4 e Tabela: mostre que 65% das aplicações foram seguras e a coluna de Janela Livre.</p>
         </div>
 
-        <div class="glass p-3 rounded-xl border border-blue-500 bg-blue-950/30 space-y-2">
-          <div class="w-6 h-6 rounded-full bg-blue-500 text-white font-bold text-xs flex items-center justify-center">4</div>
-          <h4 class="font-bold text-xs text-cyan-300">Previsão 15 Dias</h4>
-          <p class="text-[11px] text-zinc-200">A "virada de chave": mostre o dia 30/09 (18h livres) vs 02/10 (chuva) na matriz de 4 turnos diários.</p>
+        <div class="card-box p-3 rounded-xl border-blue-400 bg-blue-50/60 space-y-2">
+          <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center">4</div>
+          <h4 class="font-bold text-xs text-blue-900">Previsão 15 Dias</h4>
+          <p class="text-[11px] text-slate-600">A "virada de chave": mostre o dia 30/09 (18h livres) vs 02/10 (chuva) na matriz de 4 turnos diários.</p>
         </div>
 
-        <div class="glass p-3 rounded-xl border border-zinc-800 space-y-2">
+        <div class="card-box p-3 rounded-xl space-y-2">
           <div class="w-6 h-6 rounded-full bg-blue-600 text-white font-bold text-xs flex items-center justify-center">5</div>
-          <h4 class="font-bold text-xs text-white">Drill-Down</h4>
-          <p class="text-[11px] text-zinc-400">Clique na tabela para abrir a gaveta lateral com pressão PSI, dose e correlação no gráfico de dispersão.</p>
+          <h4 class="font-bold text-xs text-slate-900">Drill-Down</h4>
+          <p class="text-[11px] text-slate-500">Clique na tabela para abrir a gaveta lateral com pressão PSI, dose e correlação no gráfico de dispersão.</p>
         </div>
       </div>
 
-      <div class="p-3 bg-zinc-900/80 rounded-xl border border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-        <span><i class="fa-solid fa-lightbulb text-amber-400 mr-1.5"></i> Dica de ouro: Sempre enfatize que o sistema <strong>economiza dinheiro e protege a colheita</strong>.</span>
-        <a href="http://localhost:3000" target="_blank" class="text-blue-400 font-bold hover:underline">Abrir Cockpit agora &rarr;</a>
+      <div class="p-3 bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-between text-xs text-slate-600">
+        <span><i class="fa-solid fa-lightbulb text-amber-500 mr-1.5"></i> Dica de ouro: Sempre enfatize que o sistema <strong>economiza dinheiro e protege a colheita</strong>.</span>
+        <a href="http://localhost:3000" target="_blank" class="text-blue-600 font-bold hover:underline">Abrir Cockpit agora &rarr;</a>
       </div>
     </section>
 
     <!-- SLIDE 7: FAQ Executivo / Perguntas Difíceis -->
     <section class="slide flex-col justify-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="border-b border-zinc-800 pb-4">
-        <span class="text-xs font-bold text-purple-400 font-mono tracking-wider uppercase">06 • Preparação para Sabatina</span>
-        <h2 class="text-3xl font-extrabold text-white mt-1">Como Responder às "Pegadinhas" da Diretoria</h2>
-        <p class="text-sm text-zinc-400 mt-1">Respostas prontas e tecnicamente inquestionáveis para as dúvidas mais comuns.</p>
+      <div class="border-b border-slate-200 pb-4">
+        <span class="text-xs font-bold text-purple-600 font-mono tracking-wider uppercase">06 • Preparação para Sabatina</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 mt-1">Como Responder às "Pegadinhas" da Diretoria</h2>
+        <p class="text-sm text-slate-500 mt-1">Respostas prontas e tecnicamente inquestionáveis para as dúvidas mais comuns.</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="glass p-4 rounded-xl space-y-2">
-          <h4 class="font-bold text-xs text-amber-400 flex items-center gap-1.5">
+        <div class="card-box p-4 rounded-xl space-y-2">
+          <h4 class="font-bold text-xs text-amber-600 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-question"></i> "Por que não usar a estação meteorológica física da fazenda?"
           </h4>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             <strong>Resposta:</strong> A estação física só mede o <em>passado</em> (o vento que já soprou ou a chuva que já caiu). O WeatherNext 2 olha para a <strong>frente</strong>, calculando 64 cenários futuros por 15 dias para antecipar compras de calda e escala de operadores.
           </p>
         </div>
 
-        <div class="glass p-4 rounded-xl space-y-2">
-          <h4 class="font-bold text-xs text-amber-400 flex items-center gap-1.5">
+        <div class="card-box p-4 rounded-xl space-y-2">
+          <h4 class="font-bold text-xs text-amber-600 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-question"></i> "Por que o Talhão 11 tem 138 ha mas registrou apenas 74 ha num dia?"
           </h4>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             <strong>Resposta:</strong> Nosso mapa mede o <strong>trabalho efetivo com bicos abertos</strong>. Em muitos dias a operação é uma "reboleira" (foco específico de praga) ou meia área. Não cobramos a área cadastrada no papel, mas sim o trabalho real.
           </p>
         </div>
 
-        <div class="glass p-4 rounded-xl space-y-2">
-          <h4 class="font-bold text-xs text-amber-400 flex items-center gap-1.5">
+        <div class="card-box p-4 rounded-xl space-y-2">
+          <h4 class="font-bold text-xs text-amber-600 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-question"></i> "Por que tantos dias aparecem com o status ALERTA?"
           </h4>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             <strong>Resposta:</strong> O clima de verão em MT tem pancadas rápidas de 1 a 5 mm. O status de Alerta indica que o agrônomo deve checar a quebra horária: se a chuva está prevista para o final da tarde, a manhã inteira (6h a 8h livres) está liberada para trabalho seguro.
           </p>
         </div>
 
-        <div class="glass p-4 rounded-xl space-y-2">
-          <h4 class="font-bold text-xs text-amber-400 flex items-center gap-1.5">
+        <div class="card-box p-4 rounded-xl space-y-2">
+          <h4 class="font-bold text-xs text-amber-600 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-question"></i> "De onde vêm as coordenadas exatas dos talhões?"
           </h4>
-          <p class="text-xs text-zinc-300 leading-relaxed">
+          <p class="text-xs text-slate-600 leading-relaxed">
             <strong>Resposta:</strong> Dos Shapefiles cadastrais originais da Fazenda Girassol, convertidos para o datum geodésico WGS 84 e processados com colunas nativas GEOGRAPHY no Google BigQuery.
           </p>
         </div>
@@ -442,39 +441,39 @@
 
     <!-- SLIDE 8: Conclusão & Próximos Passos -->
     <section class="slide flex-col justify-center items-center text-center space-y-6 w-full animate-in fade-in duration-300">
-      <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/40 text-blue-400 flex items-center justify-center text-2xl mb-2">
+      <div class="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-blue-600 flex items-center justify-center text-2xl mb-2 shadow-sm">
         <i class="fa-solid fa-rocket"></i>
       </div>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight max-w-3xl">
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight max-w-3xl">
         JactoWX: Do Diagnóstico à Prescrição Preditiva
       </h2>
-      <p class="text-sm sm:text-base text-zinc-400 max-w-2xl leading-relaxed">
+      <p class="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">
         Comprovamos a capacidade de cruzar a telemetria de precisão Jacto com o maior modelo de inteligência artificial meteorológica do planeta.
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl w-full text-left">
-        <div class="glass p-4 rounded-xl space-y-1">
-          <span class="text-xs font-bold text-blue-400 uppercase font-mono">Fase 1 (Pronta)</span>
-          <h4 class="text-sm font-bold text-white">Cockpit Operacional</h4>
-          <p class="text-xs text-zinc-400">Dashboard interativo, Google Maps com telemetria e planejador de 15 dias.</p>
+        <div class="card-box p-4 rounded-xl space-y-1">
+          <span class="text-xs font-bold text-blue-600 uppercase font-mono">Fase 1 (Pronta)</span>
+          <h4 class="text-sm font-bold text-slate-900">Cockpit Operacional</h4>
+          <p class="text-xs text-slate-500">Dashboard interativo, Google Maps com telemetria e planejador de 15 dias.</p>
         </div>
-        <div class="glass p-4 rounded-xl space-y-1">
-          <span class="text-xs font-bold text-emerald-400 uppercase font-mono">Fase 2</span>
-          <h4 class="text-sm font-bold text-white">Alertas no WhatsApp</h4>
-          <p class="text-xs text-zinc-400">Disparo automático para agrônomos avisando janelas livres com 48h de antecedência.</p>
+        <div class="card-box p-4 rounded-xl space-y-1">
+          <span class="text-xs font-bold text-emerald-600 uppercase font-mono">Fase 2</span>
+          <h4 class="text-sm font-bold text-slate-900">Alertas no WhatsApp</h4>
+          <p class="text-xs text-slate-500">Disparo automático para agrônomos avisando janelas livres com 48h de antecedência.</p>
         </div>
-        <div class="glass p-4 rounded-xl space-y-1">
-          <span class="text-xs font-bold text-purple-400 uppercase font-mono">Fase 3</span>
-          <h4 class="text-sm font-bold text-white">Telemetria em Tempo Real</h4>
-          <p class="text-xs text-zinc-400">Conexão MQTT/API direta com a frota de pulverizadores Jacto Uniport.</p>
+        <div class="card-box p-4 rounded-xl space-y-1">
+          <span class="text-xs font-bold text-purple-600 uppercase font-mono">Fase 3</span>
+          <h4 class="text-sm font-bold text-slate-900">Telemetria em Tempo Real</h4>
+          <p class="text-xs text-slate-500">Conexão MQTT/API direta com a frota de pulverizadores Jacto Uniport.</p>
         </div>
       </div>
 
       <div class="pt-4 flex items-center gap-3">
-        <a href="http://localhost:3000" target="_blank" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm shadow-lg shadow-blue-600/30 flex items-center gap-2 transition-all">
+        <a href="http://localhost:3000" target="_blank" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-md shadow-blue-500/20 flex items-center gap-2 transition-all">
           <i class="fa-solid fa-play"></i> Demonstrar Cockpit ao Vivo
         </a>
-        <button onclick="goToSlide(0)" class="px-5 py-3 rounded-xl glass hover:bg-zinc-800 text-zinc-300 font-bold text-sm transition-all">
+        <button onclick="goToSlide(0)" class="px-5 py-3 rounded-xl card-box hover:bg-slate-100 text-slate-700 font-bold text-sm transition-all">
           <i class="fa-solid fa-rotate-left mr-1"></i> Reiniciar
         </button>
       </div>
@@ -483,29 +482,29 @@
   </main>
 
   <!-- Bottom Navigation Thumbnails & Shortcuts Hint -->
-  <footer class="border-t border-zinc-800/80 bg-[#0c0c0f]/90 py-3 px-6 text-xs text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3">
+  <footer class="border-t border-slate-200 bg-white py-3 px-6 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-inner">
     <div class="flex items-center gap-2">
-      <span class="font-bold text-zinc-200">JactoWX</span>
+      <span class="font-bold text-slate-800">JactoWX</span>
       <span>•</span>
       <span>Fazenda Girassol (Itiquira/Rondonópolis - MT)</span>
       <span>•</span>
-      <span class="font-mono text-[11px] text-zinc-500">BigQuery: demonstracoes-fabio.JactoWX</span>
+      <span class="font-mono text-[11px] text-slate-400">BigQuery: demonstracoes-fabio.JactoWX</span>
     </div>
 
     <!-- Quick Slide Buttons -->
     <div class="flex items-center gap-1 overflow-x-auto max-w-full pb-1 sm:pb-0">
       <button onclick="goToSlide(0)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono bg-blue-600 text-white font-bold" data-index="0">1. Capa</button>
-      <button onclick="goToSlide(1)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="1">2. Risco</button>
-      <button onclick="goToSlide(2)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="2">3. Regras</button>
-      <button onclick="goToSlide(3)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="3">4. Google WX</button>
-      <button onclick="goToSlide(4)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="4">5. Auditoria</button>
-      <button onclick="goToSlide(5)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="5">6. Roteiro</button>
-      <button onclick="goToSlide(6)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="6">7. FAQ</button>
-      <button onclick="goToSlide(7)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400" data-index="7">8. Conclusão</button>
+      <button onclick="goToSlide(1)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="1">2. Risco</button>
+      <button onclick="goToSlide(2)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="2">3. Regras</button>
+      <button onclick="goToSlide(3)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="3">4. Google WX</button>
+      <button onclick="goToSlide(4)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="4">5. Auditoria</button>
+      <button onclick="goToSlide(5)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="5">6. Roteiro</button>
+      <button onclick="goToSlide(6)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="6">7. FAQ</button>
+      <button onclick="goToSlide(7)" class="slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500" data-index="7">8. Conclusão</button>
     </div>
 
-    <div class="hidden lg:flex items-center gap-2 text-[11px] text-zinc-500 font-mono">
-      <span>Use teclas <kbd class="px-1.5 py-0.5 bg-zinc-800 rounded border border-zinc-700 text-zinc-300">←</kbd> <kbd class="px-1.5 py-0.5 bg-zinc-800 rounded border border-zinc-700 text-zinc-300">→</kbd></span>
+    <div class="hidden lg:flex items-center gap-2 text-[11px] text-slate-400 font-mono">
+      <span>Use teclas <kbd class="px-1.5 py-0.5 bg-slate-100 rounded border border-slate-300 text-slate-700">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-100 rounded border border-slate-300 text-slate-700">→</kbd></span>
     </div>
   </footer>
 
@@ -538,7 +537,7 @@
         if (idx === currentSlide) {
           dot.className = 'slide-dot px-2 py-0.5 rounded text-[11px] font-mono bg-blue-600 text-white font-bold transition-all';
         } else {
-          dot.className = 'slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-zinc-800 text-zinc-400 transition-all';
+          dot.className = 'slide-dot px-2 py-0.5 rounded text-[11px] font-mono hover:bg-slate-100 text-slate-500 transition-all';
         }
       });
     }
